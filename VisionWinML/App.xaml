@@ -1,0 +1,11 @@
+﻿<Application
+    x:Class="VisionWinML.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:VisionWinML">
+    <Application.Resources>
+        <x:String x:Key="BaseURI">https://westus.api.cognitive.microsoft.com/face/v1.0/persongroups</x:String>
+        <x:String x:Key="StoragePath">https://commaxteststorage.blob.core.windows.net/</x:String>
+    </Application.Resources>
+
+</Application>

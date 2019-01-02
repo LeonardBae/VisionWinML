@@ -1,0 +1,236 @@
+﻿<Page
+    x:Class="VisionWinML.VisionPos"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:VisionWinML"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Background>
+        <AcrylicBrush TintColor="#FFF3EFE6"/>
+    </Page.Background>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.ColumnSpan="2" Background="#FF32313F">
+            <TextBlock Text="Windows ML + Custom Vision DEMO" VerticalAlignment="Center" TextAlignment="Center" FontSize="30" Foreground="White" FontWeight="SemiBold" FontFamily="Segoe UI"/>
+            <Button HorizontalAlignment="Right" Background="#FF32313F" Width="50" Click="Home_Button_Click">
+                <Image Source="..\assets\logout.png" Height="30" />
+            </Button>
+        </Grid>        
+        <!--<Grid Grid.Row="3" Grid.Column="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="18*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="1" Grid.Column="1" Background="Black">
+            --><!--Used to display a preview of the video stream from the camera--><!--
+            <CaptureElement x:Name="VideoPreview" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                <StackPanel.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="FontSize" Value="18"/>
+                        <Setter Property="Margin" Value="5"/>
+                    </Style>
+                </StackPanel.Resources>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    --><!--displays the score from the model--><!--
+                    <TextBlock Text="Score - "><Run Text="{x:Bind Score,Mode=OneWay}"/></TextBlock>
+                </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Grid>-->
+        <Grid Grid.Row="1" Grid.Column="0" Margin="20,20,10,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+
+            <Grid Grid.Row="1" Grid.Column="0" Grid.RowSpan="7" Grid.ColumnSpan="3" Background="#FFFF9A8C" Opacity="0.8"/>
+            <Image Grid.Row="0" Grid.Column="1" Source="Assets/logo.png" Height="60" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <Grid Grid.Row="1" Grid.Column="1" Grid.RowSpan="2">
+                <TextBlock Foreground="White" FontSize="25" VerticalAlignment="Center" Text="Order Content"/>
+            </Grid>
+            <Grid Grid.Row="3" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="10*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="6*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox Grid.Row="0" Grid.Column="0" Foreground="White" x:Name="textBox_name" TextAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Center"  TextWrapping="Wrap" Text="Menu" IsReadOnly="True" Background="#66E86356"/>
+                <TextBox Grid.Row="0" Grid.Column="1" Foreground="White" x:Name="textBox_qty" TextAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Center" TextWrapping="Wrap" Text="Qty" IsReadOnly="True" Background="#66E86356"/>
+                <TextBox Grid.Row="0" Grid.Column="2" Foreground="White" x:Name="textBox_money" TextAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Center" TextWrapping="Wrap" Text="Price" IsReadOnly="True" Background="#66E86356"/>
+                <ListView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Name="listView" Background="#FFF2E4BC">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid HorizontalAlignment="Stretch">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="{Binding Name}" HorizontalAlignment="Left" Foreground="#FF32313F" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Column="1" Text="{Binding Qty}" HorizontalAlignment="Center" Foreground="#FF32313F" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Column="2" Text="{Binding Value}" HorizontalAlignment="Right" Foreground="#FF32313F" VerticalAlignment="Center"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <!--<ListView Grid.Row="1" Grid.Column="0" x:Name="listView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RequestedTheme="Dark" Background="#FF383837" Foreground="#FF252525" Opacity="0.8"/>
+                <ListView Grid.Row="1" Grid.Column="1" x:Name="listViewQty" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RequestedTheme="Dark" Background="#FF383837" Foreground="#FF252525" Opacity="0.8"/>
+                <ListView Grid.Row="1" Grid.Column="2" x:Name="listViewMoney" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RequestedTheme="Dark" Background="#FF383837" Foreground="#FF252525" Opacity="0.8"/>-->
+            </Grid>
+            <Grid Grid.Row="4" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="5*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Row="1" Grid.Column="0" Text="Total" Foreground="White" TextAlignment="Center" Background="#66991515" />
+                <TextBox Grid.Row="1" Grid.Column="1" x:Name="total" HorizontalAlignment="Stretch" TextWrapping="Wrap" Foreground="White" Background="#66991515" Text="       0" VerticalAlignment="Stretch" IsReadOnly="True"/>
+            </Grid>
+            <Grid Grid.Row="5" Grid.Column="1">
+                <Grid Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2">
+                    <HyperlinkButton x:Name="pay" Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10" Click="pay_Click" Background="#FF32313F">
+                        <TextBlock VerticalAlignment="Center" Foreground="White" FontSize="25" Text="Pay"></TextBlock>
+                    </HyperlinkButton>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="30">
+
+            <!--Used to display a preview of the video stream from the camera-->
+            <CaptureElement x:Name="VideoPreview" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                <StackPanel.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="FontSize" Value="18"/>
+                        <Setter Property="Margin" Value="5"/>
+                    </Style>
+                </StackPanel.Resources>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="Score - "><Run Text="{x:Bind Score,Mode=OneWay}"/></TextBlock>
+                </StackPanel>
+            </StackPanel>
+
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="1" Margin="10,20,20,20">
+            <Grid  Background="#FFFF9A8C" Opacity="0.8"/>
+            <Image Stretch="Uniform" x:Name="resultimage"/>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1" Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid x:Name="DisabledFeedGrid" Grid.Row="1" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Rectangle Margin="10" Stroke="White" StrokeThickness="4" Grid.RowSpan="2"/>
+                <Image x:Name="image" HorizontalAlignment="Center" VerticalAlignment="Center" Source="Assets/CameraIcon.png" Margin="50"/>
+                <TextBlock x:Name="DisabledText" TextWrapping="Wrap" Text="Please place the product where the camera can be seen." Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="1" FontSize="33.333" TextAlignment="Center" Margin="10,0"/>
+            </Grid>
+            <Grid x:Name="ChoGrid" Grid.RowSpan="3" Grid.ColumnSpan="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Source="Assets/chopic.png"/>
+                <Image Grid.Row="1" Margin="30,0" Source="Assets/chodetail.png"/>
+                <Image Grid.Row="0" Height="150" Margin="-60,150,120,0" Source="Assets/buyget.png">
+                    <Image.RenderTransform>
+                        <RotateTransform Angle="320"/>
+                    </Image.RenderTransform>
+                </Image>
+            </Grid>
+            <Grid x:Name="KongGrid" Grid.RowSpan="3" Grid.ColumnSpan="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Margin="60" Source="Assets/kongpic.png"/>
+                <Image Grid.Row="1" Margin="30,0" Source="Assets/kongdetail.png"/>
+                <Image Grid.Row="0" Height="150" Margin="-60,150,120,0" Source="Assets/buyget.png">
+                    <Image.RenderTransform>
+                        <RotateTransform Angle="320"/>
+                    </Image.RenderTransform>
+                </Image>
+            </Grid>
+            <Grid x:Name="GoGrid" Grid.RowSpan="3" Grid.ColumnSpan="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Source="Assets/gopic.png"/>
+                <Image Grid.Row="1" Margin="30,0" Source="Assets/godetail.png"/>
+            </Grid>
+            <Grid x:Name="KanGrid" Grid.RowSpan="3" Grid.ColumnSpan="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Margin="30" Source="Assets/kanpic.png"/>
+                <Image Grid.Row="1" Margin="30,0" Source="Assets/kandetail.png"/>
+            </Grid>
+            <Grid x:Name="KanmilGrid" Grid.RowSpan="3" Grid.ColumnSpan="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Source="Assets/kanmilpic.png"/>
+                <Image Grid.Row="1" Margin="30,0" Source="Assets/kanmildetail.png"/>
+            </Grid>
+        </Grid>
+        
+    </Grid>
+</Page>

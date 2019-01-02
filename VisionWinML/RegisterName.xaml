@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="VisionWinML.RegisterName"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:VisionWinML"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="23*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#FF32313F">
+            <TextBlock Text="Windows ML + Custom Vision DEMO" VerticalAlignment="Center" TextAlignment="Center" FontSize="30" Foreground="White" FontWeight="SemiBold" FontFamily="Segoe UI"/>
+            <Button HorizontalAlignment="Right" Background="#FF32313F" Width="50" Click="Home_Button_Click">
+                <Image Source="..\assets\logout.png" Height="30" />
+            </Button>
+        </Grid>
+        <Grid Grid.Row="1" RequestedTheme="Dark" Background="#FFF3EFE6">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBox x:Name="txtPerson" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50" Margin="10,10,30,17" PlaceholderText="Person Name (ex: Jason Bon)"/>
+            <Button x:Name="ConfirmButton" Background="#FF32313F" Grid.Row="2" Content="Register" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50" Click="AppBarButtonAddPerson_Click"/>
+        </Grid>
+    </Grid>
+</Page>

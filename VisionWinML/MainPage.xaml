@@ -1,0 +1,97 @@
+﻿<Page
+    x:Class="VisionWinML.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:VisionWinML"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Background>
+        <AcrylicBrush TintColor="#FFFF9A8C"/>
+    </Page.Background>
+    <Grid Margin="80,50,80,50">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.ColumnSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Foreground="White" HorizontalAlignment="Center" FontSize="100" FontWeight="Bold" Text="LOGIN"/>
+            <TextBlock Grid.Row="1" Foreground="White" HorizontalAlignment="Center" FontSize="100" FontStyle="Italic" Text="or" />
+            <TextBlock Grid.Row="2" Foreground="White" HorizontalAlignment="Center" FontSize="100" FontWeight="Bold" Text="REGISTER" />
+            <TextBlock Grid.Row="3"  Foreground="White" HorizontalAlignment="Center" FontSize="50" FontStyle="Italic" Text="as a visitior to enter" />
+            <Image Grid.Row="3" Source="Assets\logo.png" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="20,30" Height="50" />
+            <!--<Border Grid.Row="3" Grid.ColumnSpan="3" BorderBrush="White" BorderThickness="2" VerticalAlignment="Bottom"/>-->
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="8*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Grid.RowSpan="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFFF9A8C" Click="LOGIN_Button_Click">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="9*"/>
+                        <RowDefinition Height="5*"/>
+                    </Grid.RowDefinitions>
+                    <Image Grid.Row="0" Margin="30,0,30,0" Source="Assets\login.png"/>
+                    <TextBlock Grid.Row="1" Text="LOGIN" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Medium" FontSize="40" />
+                </Grid>
+            </Button>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="8*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Grid.RowSpan="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFFF9A8C" Click="REGISTER_Button_Click">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="9*"/>
+                        <RowDefinition Height="5*"/>
+                    </Grid.RowDefinitions>
+                    <Image Grid.Row="0" Margin="30,0,30,0" Source="Assets\register.png"/>
+                    <TextBlock Grid.Row="1" Text="REGISTER" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Medium" FontSize="40" />
+                </Grid>
+            </Button>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="8*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Grid.RowSpan="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFFF9A8C" Click="GUEST_Button_Click">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="9*"/>
+                        <RowDefinition Height="5*"/>
+                    </Grid.RowDefinitions>
+                    <Image Grid.Row="0" Margin="30,0,30,0" Source="Assets\guest.png"/>
+                <TextBlock Grid.Row="1" Text="GUEST" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Medium" FontSize="40" />
+                </Grid>
+            </Button>
+        </Grid>
+
+        <Border Grid.Row="2" Grid.ColumnSpan="3" VerticalAlignment="Top" BorderBrush="White" BorderThickness="2" />
+        <Border Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" BorderBrush="White" BorderThickness="1" />
+        <Border Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" BorderBrush="White" BorderThickness="1" />
+        <Border Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" BorderBrush="White" BorderThickness="1" />
+        <Border Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" BorderBrush="White" BorderThickness="1" />
+    </Grid>
+</Page>
