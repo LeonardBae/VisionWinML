@@ -120,9 +120,9 @@ namespace VisionWinML
         public static async void init()
         {
 
-            _subscriptionKey = "88c1a3fefd4945f2a9eef3f6a321bf51";
-            _storageAccountName = "commaxteststorage";
-            _storageAccountKey = "j1JQEOJn2JZ/M7A+aoC2DULmyWVlt5gG6eWXOgFuAekWVD/esY+vhpjmqqFukw7Ovjp+ZG6b5CCZ/irnI0gRqA==";
+            _subscriptionKey = "";
+            _storageAccountName = "";
+            _storageAccountKey = "";
 
             if (_subscriptionKey.Equals(""))
             {

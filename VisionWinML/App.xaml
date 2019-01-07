@@ -5,7 +5,7 @@
     xmlns:local="using:VisionWinML">
     <Application.Resources>
         <x:String x:Key="BaseURI">https://westus.api.cognitive.microsoft.com/face/v1.0/persongroups</x:String>
-        <x:String x:Key="StoragePath">https://commaxteststorage.blob.core.windows.net/</x:String>
+        <x:String x:Key="StoragePath"></x:String>
     </Application.Resources>
 
 </Application>
